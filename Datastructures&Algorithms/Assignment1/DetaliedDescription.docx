@@ -1,0 +1,2 @@
+
+I think bad_alloc messsage appeared because my computer ran out of space for memory allocation. For case 2 I entered 1,000,000,000 which would take much time and space and my computer unfortunaly was using all the memory that was left. In case 1 and 3 my computer did not run of space because the list size values were smaller.

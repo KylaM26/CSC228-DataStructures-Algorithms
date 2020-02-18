@@ -1,0 +1,26 @@
+    const Node<T>* Insert(const T data, const int index) {
+
+        Node<T>* insertionNode = new Node<T>(data); theta(1)
+        Node<T>* previousNode = this->head; theta(1)
+        Node<T>* currentNode = this->head->next; theta(1)
+        
+        int i = 0; theta(1)
+        
+        while(currentNode) { best case O(1), worst case O(n)
+            
+            if(i == index) { theta(1)
+                previousNode->next = insertionNode; theta(1)
+                insertionNode->next = currentNode; theta(1)
+                return insertionNode; theta(1)
+            }
+            
+            previousNode = currentNode; theta(1)
+            currentNode = currentNode->next; theta(1)
+            i++, this->size++; theta(1)
+        }
+        
+        return nullptr;
+        
+    }
+
+    This algorithm will take O(n) time becuase it will transverse through all the nodes.
