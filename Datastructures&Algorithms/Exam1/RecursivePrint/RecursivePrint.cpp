@@ -189,7 +189,7 @@ class List{
     
     void recursivePrintForwardReverseOrders(Node* firstNode, int printIndex, int size) {
         if(printIndex == size) {
-            std::cout << std::endl;
+            std::cout << "\n\n";
             return;
         }
         
@@ -199,6 +199,7 @@ class List{
             recursivePrintForwardReverseOrders(firstNode->getNextNodePtr(), printIndex + 1, size);
             std::cout << firstNode->getData() << " ";
         }
+        
     } 
 };
 
@@ -233,7 +234,7 @@ int main(){
     Node* firstNodePtr = integerList.getHeadPtr()->getNextNodePtr();
     int printIndex = 0;
     integerList.recursivePrintForwardReverseOrders(firstNodePtr, printIndex, listSize);
-    
+    std:: cout << std::endl;
     return 0;
 
 }

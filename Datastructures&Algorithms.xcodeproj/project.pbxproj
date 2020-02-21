@@ -165,6 +165,8 @@
 		7A21586323F5E1C500AEEF1B /* ParenthesisBalance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParenthesisBalance; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A21586523F5E1C500AEEF1B /* ParenthesisBalance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParenthesisBalance.cpp; sourceTree = "<group>"; };
 		7A21586A23F5E1E300AEEF1B /* ParenthesisBalance.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ParenthesisBalance.pdf; path = ../../../../../../../../Downloads/ParenthesisBalance.pdf; sourceTree = "<group>"; };
+		7A2907E723FF3C58004EC4F2 /* Graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Graph.png; path = ../../../../../../../../../Desktop/Graph.png; sourceTree = "<group>"; };
+		7A2907E823FF3CA7004EC4F2 /* Table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Table.png; path = ../../../../../../../../../Desktop/Table.png; sourceTree = "<group>"; };
 		7A5DB66523E9D366005D4030 /* SortedList-Node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SortedList-Node"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5DB66723E9D366005D4030 /* sorted-list-node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "sorted-list-node.cpp"; sourceTree = "<group>"; };
 		7A6E771123E5E274000E4104 /* Assignment2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment2.pdf; sourceTree = "<group>"; };
@@ -359,6 +361,8 @@
 		7A79BF4323F4741300A970F9 /* SelectionSort */ = {
 			isa = PBXGroup;
 			children = (
+				7A2907E823FF3CA7004EC4F2 /* Table.png */,
+				7A2907E723FF3C58004EC4F2 /* Graph.png */,
 				7A79BF4423F4741300A970F9 /* SelectionSort.cpp */,
 			);
 			path = SelectionSort;
@@ -398,7 +402,6 @@
 				7A79BF5923F48BD000A970F9 /* UniqueLinkedList */,
 				7AA9A2AC23F33EA3002DC24A /* RecursivePrint */,
 				7A85CF8323F328D7006BD4FC /* StackUsingLinkedList */,
-				7A79BF4E23F4747200A970F9 /* MinAndMaxNodes */,
 				7A79BF4323F4741300A970F9 /* SelectionSort */,
 			);
 			path = Exam1;
@@ -411,6 +414,7 @@
 				7A12E58623FC566E00DD12BE /* Stack-02.png */,
 				7A12E58523FC563900DD12BE /* Stack-01.png */,
 				7A85CF8423F328D7006BD4FC /* StackUsingLinkedList.cpp */,
+				7A79BF4E23F4747200A970F9 /* MinAndMaxNodes */,
 			);
 			path = StackUsingLinkedList;
 			sourceTree = "<group>";

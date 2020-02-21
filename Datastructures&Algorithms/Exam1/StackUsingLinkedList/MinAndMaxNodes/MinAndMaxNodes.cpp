@@ -215,8 +215,8 @@ int main(){
     Node* headPtr = integerList.getHeadPtr();
     Node* currentNodePtr = headPtr->getNextNodePtr();
     
-    Node* minDataNodePtr = currentNodePtr;
-    Node* maxDataNodePtr = currentNodePtr;
+    Node* min = currentNodePtr;
+    Node* max = currentNodePtr;
     
     // Comple the code here to find out the addresses of the nodes with the
     // minimum and maximum data in the singly linked list (integerList)
@@ -225,19 +225,18 @@ int main(){
 
     while(currentNodePtr) {
         
-        if(currentNodePtr->getData() >= maxDataNodePtr->getData())
-            maxDataNodePtr = currentNodePtr;
+        if(currentNodePtr->getData() > max->getData())
+            max = currentNodePtr;
         
-        if(currentNodePtr->getData() <= minDataNodePtr->getData())
-            minDataNodePtr = currentNodePtr;
+        if(currentNodePtr->getData() < min->getData())
+            min = currentNodePtr;
         
         currentNodePtr = currentNodePtr->getNextNodePtr();
         
     }
     
     
-    cout << "Minimum data is: " << minDataNodePtr->getData() << endl;
-    cout << "Maximum data is: " << maxDataNodePtr->getData() << endl;
+    cout << "Min, " << min->getData() << " Max " << max->getData() << endl;
     
     
     system("pause");

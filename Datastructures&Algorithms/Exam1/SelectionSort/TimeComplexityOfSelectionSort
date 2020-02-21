@@ -1,0 +1,1 @@
+The time complexity of my selection sort algorithm is O(n^2) due to the double for-loop. The R^2 equation equals 1, therefore I assume it it takes appromaxitly 1 minute to run the code. The Y equal value seems random to me and I don't see how it has something to do with the time complexity of the code.

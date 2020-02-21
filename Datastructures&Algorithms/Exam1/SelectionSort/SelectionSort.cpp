@@ -120,10 +120,9 @@ class List{
         }
     
     void Swap(int i, int j) {
-        int a = array[i];
-        int b = array[j];
-        array[i] = b;
-        array[j] = a;
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
     
 
@@ -133,10 +132,12 @@ class List{
 void SelectionSort(List list){
     
      // Implement the algorithm here for a dynamic array-based implementation of List
-    for(int i = 0; i < list.countList() - 2; i++) {
+    const int listSize = list.countList();
+    
+    for(int i = 0; i < listSize - 2; i++) {
         int min = i;
         
-        for(int j = i + 1; j < list.countList() - 1; j++)
+        for(int j = i + 1; j < listSize - 1; j++)
             if(list.read(j) < list.read(min)) min = j;
            
         list.Swap(i, min);
