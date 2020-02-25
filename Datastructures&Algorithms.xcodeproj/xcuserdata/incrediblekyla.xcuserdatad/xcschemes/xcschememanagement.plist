@@ -42,7 +42,12 @@
 		<key>ParenthesisBalance.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>12</integer>
+		</dict>
+		<key>PrefixFormat.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>RecursivePrint.xcscheme_^#shared#^_</key>
 		<dict>
@@ -72,7 +77,7 @@
 		<key>UniqueLinkedList.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>13</integer>
 		</dict>
 	</dict>
 </dict>

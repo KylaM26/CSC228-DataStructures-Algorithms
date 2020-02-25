@@ -12,6 +12,7 @@
 		7A2519C623E496AF00387493 /* case2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5F44123DA16B200D30BBA /* case2.cpp */; };
 		7A5DB66823E9D366005D4030 /* sorted-list-node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DB66723E9D366005D4030 /* sorted-list-node.cpp */; };
 		7A6E771923E5E2B4000E4104 /* sorted-list-array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E771823E5E2B4000E4104 /* sorted-list-array.cpp */; };
+		7A72CBA0240568C80022B523 /* PrefixFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A72CB9F240568C80022B523 /* PrefixFormat.cpp */; };
 		7A79BF4523F4741300A970F9 /* SelectionSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A79BF4423F4741300A970F9 /* SelectionSort.cpp */; };
 		7A79BF5023F4747200A970F9 /* MinAndMaxNodes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A79BF4F23F4747200A970F9 /* MinAndMaxNodes.cpp */; };
 		7A79BF5B23F48BD000A970F9 /* UniqueLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A79BF5A23F48BD000A970F9 /* UniqueLinkedList.cpp */; };
@@ -51,6 +52,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		7A6E771423E5E2B4000E4104 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7A72CB9B240568C80022B523 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -164,7 +174,6 @@
 		7A1CD79D23EC844D00E966B4 /* DeleteOccuranceArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeleteOccuranceArray.cpp; sourceTree = "<group>"; };
 		7A21586323F5E1C500AEEF1B /* ParenthesisBalance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParenthesisBalance; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A21586523F5E1C500AEEF1B /* ParenthesisBalance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParenthesisBalance.cpp; sourceTree = "<group>"; };
-		7A21586A23F5E1E300AEEF1B /* ParenthesisBalance.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ParenthesisBalance.pdf; path = ../../../../../../../../Downloads/ParenthesisBalance.pdf; sourceTree = "<group>"; };
 		7A2907E723FF3C58004EC4F2 /* Graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Graph.png; path = ../../../../../../../../../Desktop/Graph.png; sourceTree = "<group>"; };
 		7A2907E823FF3CA7004EC4F2 /* Table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Table.png; path = ../../../../../../../../../Desktop/Table.png; sourceTree = "<group>"; };
 		7A5DB66523E9D366005D4030 /* SortedList-Node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SortedList-Node"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +181,9 @@
 		7A6E771123E5E274000E4104 /* Assignment2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment2.pdf; sourceTree = "<group>"; };
 		7A6E771623E5E2B4000E4104 /* SortedlList-Array */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SortedlList-Array"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6E771823E5E2B4000E4104 /* sorted-list-array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "sorted-list-array.cpp"; sourceTree = "<group>"; };
+		7A72CB9D240568C80022B523 /* PrefixFormat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PrefixFormat; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A72CB9F240568C80022B523 /* PrefixFormat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PrefixFormat.cpp; sourceTree = "<group>"; };
+		7A72CBA42405691E0022B523 /* Assignment5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Assignment5.pdf; path = ../../../../../../../../Downloads/Assignment5.pdf; sourceTree = "<group>"; };
 		7A79BF3D23F4411600A970F9 /* Exam1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Exam1.pdf; sourceTree = "<group>"; };
 		7A79BF4223F4741300A970F9 /* SelectionSort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SelectionSort; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A79BF4423F4741300A970F9 /* SelectionSort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionSort.cpp; sourceTree = "<group>"; };
@@ -191,6 +203,12 @@
 		7AA5F44123DA16B200D30BBA /* case2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = case2.cpp; sourceTree = "<group>"; };
 		7AA9A2AB23F33EA3002DC24A /* RecursivePrint */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RecursivePrint; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA9A2AD23F33EA3002DC24A /* RecursivePrint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RecursivePrint.cpp; sourceTree = "<group>"; };
+		7ADED3C4240464AA00FC27D9 /* ParenthesisBalance.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ParenthesisBalance.pdf; path = ../../../../../../../../Downloads/ParenthesisBalance.pdf; sourceTree = "<group>"; };
+		7ADED3C52404734700FC27D9 /* Parenthesis-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Parenthesis-0.png"; path = "../../../../../../../../Desktop/Parenthesis-0.png"; sourceTree = "<group>"; };
+		7ADED3C62404737E00FC27D9 /* Parenthesis-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Parenthesis-1.png"; path = "../../../../../../../../Desktop/Parenthesis-1.png"; sourceTree = "<group>"; };
+		7ADED3C72404741200FC27D9 /* Parenthesis-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Parenthesis-2.png"; path = "../../../../../../../../Desktop/Parenthesis-2.png"; sourceTree = "<group>"; };
+		7ADED3C82404743100FC27D9 /* Parenthesis-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Parenthesis-3.png"; path = "../../../../../../../../Desktop/Parenthesis-3.png"; sourceTree = "<group>"; };
+		7ADED3C9240474AD00FC27D9 /* Parenthesis-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Parenthesis-4.png"; path = "../../../../../../../../Desktop/Parenthesis-4.png"; sourceTree = "<group>"; };
 		7AE8D5FC23E0A21000BD665A /* Case3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Case3; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE8D5FE23E0A21100BD665A /* case3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = case3.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +236,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7A6E771323E5E2B4000E4104 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A72CB9A240568C80022B523 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -318,7 +343,12 @@
 		7A21585E23F5E19E00AEEF1B /* Assignment4 */ = {
 			isa = PBXGroup;
 			children = (
-				7A21586A23F5E1E300AEEF1B /* ParenthesisBalance.pdf */,
+				7ADED3C9240474AD00FC27D9 /* Parenthesis-4.png */,
+				7ADED3C52404734700FC27D9 /* Parenthesis-0.png */,
+				7ADED3C62404737E00FC27D9 /* Parenthesis-1.png */,
+				7ADED3C72404741200FC27D9 /* Parenthesis-2.png */,
+				7ADED3C82404743100FC27D9 /* Parenthesis-3.png */,
+				7ADED3C4240464AA00FC27D9 /* ParenthesisBalance.pdf */,
 				7A21586423F5E1C500AEEF1B /* ParenthesisBalance */,
 			);
 			path = Assignment4;
@@ -356,6 +386,15 @@
 				7A6E771823E5E2B4000E4104 /* sorted-list-array.cpp */,
 			);
 			path = "SortedlList-Array";
+			sourceTree = "<group>";
+		};
+		7A72CB9E240568C80022B523 /* Assignment5 */ = {
+			isa = PBXGroup;
+			children = (
+				7A72CBA42405691E0022B523 /* Assignment5.pdf */,
+				7A72CB9F240568C80022B523 /* PrefixFormat.cpp */,
+			);
+			path = Assignment5;
 			sourceTree = "<group>";
 		};
 		7A79BF4323F4741300A970F9 /* SelectionSort */ = {
@@ -444,6 +483,7 @@
 				7A79BF4D23F4747200A970F9 /* MinAndMaxNodes */,
 				7A79BF5823F48BD000A970F9 /* UniqueLinkedList */,
 				7A21586323F5E1C500AEEF1B /* ParenthesisBalance */,
+				7A72CB9D240568C80022B523 /* PrefixFormat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,6 +491,7 @@
 		7AA5F42623D9F59800D30BBA /* Datastructures&Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				7A72CB9E240568C80022B523 /* Assignment5 */,
 				7A21585E23F5E19E00AEEF1B /* Assignment4 */,
 				7A85CF7D23F3289F006BD4FC /* Exam1 */,
 				7A1CD79523EC841A00E966B4 /* Assignment3 */,
@@ -573,6 +614,23 @@
 			name = "SortedlList-Array";
 			productName = "SortedlList-Array";
 			productReference = 7A6E771623E5E2B4000E4104 /* SortedlList-Array */;
+			productType = "com.apple.product-type.tool";
+		};
+		7A72CB9C240568C80022B523 /* PrefixFormat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A72CBA3240568C80022B523 /* Build configuration list for PBXNativeTarget "PrefixFormat" */;
+			buildPhases = (
+				7A72CB99240568C80022B523 /* Sources */,
+				7A72CB9A240568C80022B523 /* Frameworks */,
+				7A72CB9B240568C80022B523 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrefixFormat;
+			productName = PrefixFormat;
+			productReference = 7A72CB9D240568C80022B523 /* PrefixFormat */;
 			productType = "com.apple.product-type.tool";
 		};
 		7A79BF4123F4741300A970F9 /* SelectionSort */ = {
@@ -767,6 +825,9 @@
 					7A6E771523E5E2B4000E4104 = {
 						CreatedOnToolsVersion = 11.3;
 					};
+					7A72CB9C240568C80022B523 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					7A79BF4123F4741300A970F9 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -826,6 +887,7 @@
 				7A79BF4C23F4747200A970F9 /* MinAndMaxNodes */,
 				7A79BF5723F48BD000A970F9 /* UniqueLinkedList */,
 				7A21586223F5E1C500AEEF1B /* ParenthesisBalance */,
+				7A72CB9C240568C80022B523 /* PrefixFormat */,
 			);
 		};
 /* End PBXProject section */
@@ -860,6 +922,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6E771923E5E2B4000E4104 /* sorted-list-array.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A72CB99240568C80022B523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A72CBA0240568C80022B523 /* PrefixFormat.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,6 +1082,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7A72CBA1240568C80022B523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7A72CBA2240568C80022B523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1339,6 +1425,15 @@
 			buildConfigurations = (
 				7A6E771B23E5E2B4000E4104 /* Debug */,
 				7A6E771C23E5E2B4000E4104 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A72CBA3240568C80022B523 /* Build configuration list for PBXNativeTarget "PrefixFormat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A72CBA1240568C80022B523 /* Debug */,
+				7A72CBA2240568C80022B523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

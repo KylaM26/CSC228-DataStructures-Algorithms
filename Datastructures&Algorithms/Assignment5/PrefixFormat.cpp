@@ -1,22 +1,25 @@
 #include <iostream>
+#include <string>
+#include <cstring>
+
 using namespace std;
 
 
 class Node{
     
     private:
-        char data;
+        int data;
         Node* nextNodePtr;
         Node* prevNodePtr;
         
     public:
         Node(){}
         
-        void setData(char d){
+        void setData(int d){
             data = d;
         }
         
-        char getData(){
+        int getData(){
             return data;
         }
         
@@ -70,7 +73,7 @@ class Stack{
         }
         
         
-        void push(char data){
+        void push(int data){
             
             Node* newNodePtr = new Node();
             newNodePtr->setData(data);
@@ -96,12 +99,12 @@ class Stack{
         }
 
         
-        char pop(){
+        int pop(){
             
             Node* lastNodePtr = tailPtr->getPrevNodePtr();
             Node* prevNodePtr = 0;
             
-            char poppedData = '$'; //empty stack
+            int poppedData = -100000; //empty stack
             
             if (lastNodePtr != 0){
                 prevNodePtr = lastNodePtr->getPrevNodePtr();
@@ -123,18 +126,18 @@ class Stack{
         }
         
         
-        char peek(){
+        int peek(){
             
             Node* lastNodePtr = tailPtr->getPrevNodePtr();
             
             if (lastNodePtr != 0)
                 return lastNodePtr->getData();
             else
-                return '$'; //  empty stack
+                return -100000; //  empty stack
         
             
         }
-        
+    
         
         
 };
@@ -145,47 +148,57 @@ int main(){
 
     string expression;
     
-    cout << "Enter an expression: ";
-    cin >> expression;
+    cout << "Enter the expression to evaluate: ";
+    getline(cin, expression);
+    char* expressionArray = new char[expression.length()+1];
+    strcpy(expressionArray, expression.c_str());
     
-    int index = 0, maxDepth = 0;
+    char* cptr = strtok(expressionArray, ", ");
     
-    while (index < expression.size()) {
-        int depth = 0;
-        char symbol = expression[index];
+    while (cptr != 0){
         
-        if (symbol == '{' ){
-            stack.push(symbol);
-            index++;
-            depth++;
-            maxDepth = depth;
-            continue;
-            
-        } else if (symbol == '}' ){
-            char topSymbol = stack.pop();
-            
-            if (topSymbol == '{' && symbol == '}') {
-                depth--;
-                index++;
-                continue;
-            } else {
-                cout << "Expression not balanced!!" <<  "\n, Depth: " << maxDepth << endl;
-                return 0;
-                
-            }
-        } else{
-            cout << "Invalid symbol "<< symbol << " in the expression!!" << endl;
-            return 0;
+        string token(cptr);
+        
+        bool isOperator = false;
+        
+        if ( (token.compare("*") == 0) || (token.compare("/") == 0) || (token.compare("+") == 0) || (token.compare("-") == 0) )
+            isOperator = true;
+        
+        if (!isOperator){
+            int val = stoi(token);
+            stack.push(val);
         }
+        
+        
+        if (isOperator) {
+            
+            int rightOperand = stack.pop();
+            int leftOperand = stack.pop();
+            
+            if (token.compare("*") == 0){
+                int result = leftOperand * rightOperand;
+                cout << "intermediate result: " << result << endl;
+                stack.push(result);
+            } else if (token.compare("/") == 0){
+                int result = leftOperand / rightOperand;
+                cout << "intermediate result: " << result << endl;
+                stack.push(result);
+            } else if (token.compare("+") == 0){
+                int result = leftOperand + rightOperand;
+                cout << "intermediate result: " << result << endl;
+                stack.push(result);
+            } else if (token.compare("-") == 0){
+                int result = leftOperand - rightOperand;
+                cout << "intermediate result: " << result << endl;
+                stack.push(result);
+            }
+        }
+  
+        cptr = strtok(NULL, ", ");
     }
     
-    if (!stack.isEmpty()){
-        cout << "Expression not balanced!!" <<  "\nDepth: " << maxDepth << endl;
-        return 0;
-    }
-
-    cout << expression << " is balanced!!" << endl;
-
+    cout << "final result: " << stack.pop() << endl;
     
-return 0;
+    return 0;
 }
+
