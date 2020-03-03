@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 
@@ -137,24 +139,54 @@ class Stack{
         
             
         }
-    
-        
-        
+      
 };
 
-int main(){
+std::string ReverseCString(std::string e) {
+    std::string s;
+    std::string str;
+    
+    for(int i = 0; i < e.size(); i++) {
+        if(e.at(i) == ' ') {
+            continue;
+        } else if(e.at(i) != ',') {
+            str += e.at(i);
+        } else {
+            std::reverse(str.begin(), str.end());
+            std::cout << str <<std::endl;
+            s += (str + ",");
+            str = "";
+        }
+        
+        if(e.size() - 1 == i) {
+            std::reverse(str.begin(), str.end());
+            s += str;
+        }
+    }
+    
+ //   std::cout << "String: " << s << std::endl;
+    
+    return s;
+}
+
+int main() {
 
     Stack stack;
+    std::vector<std::string> operators;
 
     string expression;
     
     cout << "Enter the expression to evaluate: ";
     getline(cin, expression);
-    char* expressionArray = new char[expression.length()+1];
-    strcpy(expressionArray, expression.c_str());
+    
+    std::string reversedExpression = ReverseCString(expression);
+
+    char* expressionArray = new char[reversedExpression.length()+1];
+    strcpy(expressionArray, reversedExpression.c_str());
+
     
     char* cptr = strtok(expressionArray, ", ");
-    
+
     while (cptr != 0){
         
         string token(cptr);
@@ -165,15 +197,14 @@ int main(){
             isOperator = true;
         
         if (!isOperator){
+            // reverse token
             int val = stoi(token);
             stack.push(val);
         }
         
-        
-        if (isOperator) {
-            
-            int rightOperand = stack.pop();
+        if (isOperator){
             int leftOperand = stack.pop();
+            int rightOperand = stack.pop();
             
             if (token.compare("*") == 0){
                 int result = leftOperand * rightOperand;
@@ -192,13 +223,12 @@ int main(){
                 cout << "intermediate result: " << result << endl;
                 stack.push(result);
             }
+            
         }
-  
         cptr = strtok(NULL, ", ");
     }
     
     cout << "final result: " << stack.pop() << endl;
     
-    return 0;
+return 0;
 }
-

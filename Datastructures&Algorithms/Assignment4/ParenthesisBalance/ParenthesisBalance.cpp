@@ -148,25 +148,25 @@ int main(){
     cout << "Enter an expression: ";
     cin >> expression;
     
-    int index = 0, maxDepth = 0;
+    int index = 0, depth = 0, maxDepth = 0;
     
     while (index < expression.size()) {
-        int depth = 0;
+        
         char symbol = expression[index];
         
         if (symbol == '{' ){
             stack.push(symbol);
-            index++;
-            depth++;
-            maxDepth = depth;
+            index++, depth++;
+                    
+            if(depth > maxDepth)
+                maxDepth = depth;
             continue;
             
         } else if (symbol == '}' ){
             char topSymbol = stack.pop();
             
             if (topSymbol == '{' && symbol == '}') {
-                depth--;
-                index++;
+                index++, depth--;
                 continue;
             } else {
                 cout << "Expression not balanced!!" <<  "\n, Depth: " << maxDepth << endl;
@@ -184,7 +184,7 @@ int main(){
         return 0;
     }
 
-    cout << expression << " is balanced!!" << endl;
+    cout << expression << " is balanced!!"  << "\nDepth: " << maxDepth << endl;
 
     
 return 0;
