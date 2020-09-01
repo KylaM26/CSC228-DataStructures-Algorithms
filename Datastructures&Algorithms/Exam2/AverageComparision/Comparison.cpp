@@ -1,0 +1,357 @@
+
+
+#include <iostream>
+#include <stdlib.h> //srand, rand
+#include <time.h>//clock_t, clock, CLOCKS_PER_SEC
+using namespace std;
+
+// implementing hash tables as an array of linked lists
+
+class Node{
+    
+    private:
+        int data;
+        Node* nextNodePtr;
+        
+    public:
+        Node(){}
+        
+        void setData(int d){
+            data = d;
+        }
+        
+        int getData(){
+            return data;
+        }
+        
+        void setNextNodePtr(Node* nodePtr){
+                nextNodePtr = nodePtr;
+        }
+        
+        Node* getNextNodePtr(){
+            return nextNodePtr;
+        }
+            
+};
+
+class List{
+
+    private:
+        Node *headPtr;
+    
+    public:
+        List(){
+            headPtr = new Node();
+            headPtr->setNextNodePtr(0);
+        }
+    
+        Node* getHeadPtr(){
+            return headPtr;
+        }
+    
+        bool isEmpty(){
+            
+            if (headPtr->getNextNodePtr() == 0)
+                return true;
+            
+            return false;
+        }
+        
+        
+        void insert(int data){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            Node* prevNodePtr = headPtr;
+            
+            while (currentNodePtr != 0){
+                prevNodePtr = currentNodePtr;
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+            }
+            
+            Node* newNodePtr = new Node();
+            newNodePtr->setData(data);
+            newNodePtr->setNextNodePtr(0);
+            prevNodePtr->setNextNodePtr(newNodePtr);
+            
+        }
+        
+        void insertAtIndex(int insertIndex, int data){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            Node* prevNodePtr = headPtr;
+            
+            int index = 0;
+            
+            while (currentNodePtr != 0){
+                
+                if (index == insertIndex)
+                    break;
+                
+                prevNodePtr = currentNodePtr;
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+                index++;
+            }
+            
+            Node* newNodePtr = new Node();
+            newNodePtr->setData(data);
+            newNodePtr->setNextNodePtr(currentNodePtr);
+            prevNodePtr->setNextNodePtr(newNodePtr);
+            
+        }
+        
+        
+        int read(int readIndex){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            Node* prevNodePtr = headPtr;
+            int index = 0;
+            
+            while (currentNodePtr != 0){
+            
+                if (index == readIndex)
+                    return currentNodePtr->getData();
+                
+                prevNodePtr = currentNodePtr;
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+                
+                index++;
+                
+            }
+            
+            return -1; // an invalid value indicating
+                        // index is out of range
+            
+        }
+
+            
+        
+        bool deleteElement(int deleteData){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            Node* prevNodePtr = headPtr;
+            Node* nextNodePtr = headPtr;
+                        
+            while (currentNodePtr != 0){
+            
+                if (currentNodePtr->getData() == deleteData){
+                    nextNodePtr = currentNodePtr->getNextNodePtr();
+                    prevNodePtr->setNextNodePtr(nextNodePtr);
+                    return true;
+                }
+                
+                prevNodePtr = currentNodePtr;
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+                
+            }
+            
+            return false;
+        
+        }
+        
+        int countList(){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            int numElements = 0;
+            
+            while (currentNodePtr != 0){
+                
+                numElements++;
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+                
+            }
+            
+            return numElements;
+        }
+
+        
+        void IterativePrint(){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            
+            while (currentNodePtr != 0){
+                cout << currentNodePtr->getData() << " ";
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+            }
+                
+            cout << endl;
+            
+        }
+        
+        
+        bool containsElement(int searchData){
+            
+            Node* currentNodePtr = headPtr->getNextNodePtr();
+            
+            while (currentNodePtr != 0){
+                
+                if (currentNodePtr->getData() == searchData)
+                    return true;
+                
+                currentNodePtr = currentNodePtr->getNextNodePtr();
+            }
+            
+            return false;
+            
+        }
+
+};
+
+
+class Hashtable{
+    
+    private:
+        List* listArray;
+        int tableSize;
+        
+    public:
+        Hashtable(int size){
+            tableSize = size;
+            listArray = new List[size];
+        }
+        
+        int getTableSize(){
+            return tableSize;
+        }
+        
+        void insert(int data){
+            
+            int hashIndex = data % tableSize;
+            listArray[hashIndex].insert(data);
+            
+        }
+        
+        void deleteElement(int data){
+            
+            int hashIndex = data % tableSize;
+            while (listArray[hashIndex].deleteElement(data));
+                
+        }
+        
+        bool hasElement(int data){
+            
+            int hashIndex = data % tableSize;
+            return listArray[hashIndex].containsElement(data);
+            
+        }
+        
+        void printHashTable(){
+            
+            for (int hashIndex = 0; hashIndex < tableSize; hashIndex++){
+                cout << "Hash Index: " << hashIndex << " : " ;
+                listArray[hashIndex].IterativePrint();
+            }
+            
+        }
+
+
+        double FindAvgNumComparisonsSuccessfulSearch() {
+        
+            // Implement the function to determine and return the
+            // average number of comparisons for a successful search
+            
+            int numberOfSearches = 0, numberOfSearchesMultipliedByIndex = 0;
+            for(int i = 0; i < tableSize; i++) {
+                int size = listArray[i].countList();
+                for(int j = 0; j < size; j++) {
+                    numberOfSearches++;
+                }
+                numberOfSearchesMultipliedByIndex += numberOfSearches;
+                numberOfSearchesMultipliedByIndex *= i;
+            }
+            
+            
+            return (numberOfSearchesMultipliedByIndex / numberOfSearches);
+        }
+        
+        
+        double ComputeLoadImbalanceIndex() {
+            // Implement the function to determine and return the load imbalance index
+            // The load imbalance index (the ratio of the sum of the maximum and minimum lengths of the linked lists and the difference between the maximum and minimum lengths of the linked lists; see the slides for the formulation and details)
+            int minCount = 0, maxCount = 0;
+            
+            for(int index = 0; index < tableSize; index++) {
+                int count = listArray[index].countList();
+                
+                if(count < minCount)
+                    minCount = count;
+                
+                if(count > maxCount)
+                    maxCount = count;
+            }
+            
+            return ((maxCount - minCount) / (maxCount + minCount));
+        }
+
+        
+};
+
+
+
+
+int main(){
+
+    int numElements = 100000;
+    //the number of elements you want to store in the hash table
+    
+    int maxValue = 50000;
+    //the maximum value for an element
+
+    int numTrials = 25;
+    //the number of trials
+    
+    int numTableSizeValues = 20;
+    int* hashTableSize = new int[numTableSizeValues];
+    hashTableSize[0] = 11;
+    hashTableSize[1] = 29;
+    hashTableSize[2] = 47;
+    hashTableSize[3] = 71;
+    hashTableSize[4] = 173;
+    hashTableSize[5] = 281;
+    hashTableSize[6] = 409;
+    hashTableSize[7] = 541;
+    hashTableSize[8] = 659;
+    hashTableSize[9] = 809;
+    hashTableSize[10] = 941;
+    hashTableSize[11] = 1069;
+    hashTableSize[12] = 1223;
+    hashTableSize[13] = 1373;
+    hashTableSize[14] = 1511;
+    hashTableSize[15] = 1657;
+    hashTableSize[16] = 1811;
+    hashTableSize[17] = 1987;
+    hashTableSize[18] = 2129;
+    hashTableSize[19] = 2287;
+
+    srand(time(NULL));
+
+for (int tableSizeIndex = 0; tableSizeIndex    < numTableSizeValues; tableSizeIndex++){
+    
+    double totalAvgNumComparisons = 0;
+    double totalLoadImbalanceIndex = 0;
+    
+  for (int trials = 1; trials <= numTrials; trials++){
+        
+    Hashtable hashTable(hashTableSize[tableSizeIndex]);
+    
+    int *array = new int[numElements];
+    
+    for (int index = 0; index < numElements; index++){
+        array[index] = rand() % maxValue;
+        hashTable.insert(array[index]);
+    }
+
+    totalAvgNumComparisons += hashTable.FindAvgNumComparisonsSuccessfulSearch();
+    totalLoadImbalanceIndex += hashTable.ComputeLoadImbalanceIndex();
+    
+  }
+  
+  
+    cout << hashTableSize[tableSizeIndex] << " " << (totalAvgNumComparisons/numTrials) << " " << (totalLoadImbalanceIndex/numTrials) << endl;
+    
+    
+}// table size loop
+
+    system("pause");
+        
+return 0;
+}

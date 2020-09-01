@@ -189,24 +189,19 @@ public:
     }
     
     void enqueueCostly(int data){
-        // complete the code
-        int one = this->stack1.pop(), two = this->stack2.pop();
+        int poppedData = stack1.pop();
         
-        // While there is data in either stack...
-        while(!stack1.isEmpty() || !stack2.isEmpty()) {
-            
-            // If stack one is not empty, push the data into stack two
-            if(!stack1.isEmpty()) this->stack2.push(one);
-            
-            // Enqueing new data into stack one
-            this->stack1.push(data);
-            
-            // If stack two is not empty, push the data into stack one
-            if(!stack2.isEmpty()) this->stack1.push(two);
-             
-            // Getting next data
-            if(!stack1.isEmpty()) one = this->stack1.pop();
-            if(!stack2.isEmpty()) two = this->stack2.pop();
+        while(!stack1.isEmpty()) {
+            stack2.push(poppedData);
+            poppedData = stack1.pop();
+        }
+        
+        stack1.push(data);
+        poppedData = stack2.pop();
+        
+        while(!stack2.isEmpty()) {
+            stack1.push(poppedData);
+            poppedData = stack2.pop();
         }
     }
     
@@ -218,17 +213,21 @@ public:
     }
 
     int dequeueCostly(){
-        int one = stack1.pop(), two = stack2.pop();
-        int temp = stack2.pop();
+        int poppedData = stack1.pop();
         
-        while(!stack1.isEmpty() || !stack2.isEmpty()) {
-            if(stack1.isEmpty()) stack2.push(one);
-            
-            if(stack2.isEmpty()) stack1.push(two);
-            if(stack1.isEmpty()) one = this->stack1.pop();
-            if(stack2.isEmpty()) two = this->stack2.pop();
+        while(!stack1.isEmpty()) {
+            stack2.push(poppedData);
+            poppedData = stack1.pop();
         }
-
+        
+        int temp = stack2.pop();
+        poppedData = stack2.pop();
+        
+        while(!stack2.isEmpty()) {
+            stack1.push(poppedData);
+            poppedData = stack2.pop();
+        }
+        
         return temp;
     }
 
@@ -245,19 +244,16 @@ public:
     
 };
 
-int main(){
-    
+int main() {
     using namespace std::chrono;
     
     double totalEnqueuingTime = 0;
     double totalDequeuingTime = 0;
     
-    
     int queueSize;
     
     cout << "Enter the number of elements you want to enqueue: ";
     cin >> queueSize;
-    
     
     srand(time(NULL));
     
@@ -271,7 +267,6 @@ int main(){
     cout << "Enter the number of trials: ";
     cin >> numTrials;
     
-
   cout << "Enqueuing the costly way..." << endl;
     
   for (int trials = 1; trials <= numTrials; trials++){
